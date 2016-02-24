@@ -45,7 +45,13 @@ Sub AddEquationNumber()
     Selection.Cells.VerticalAlignment = wdCellAlignVerticalCenter
     
     ' Set the size of the first column
-    Selection.Cells(1).SetWidth ColumnWidth:=InchesToPoints(3.33), RulerStyle:=wdAdjustFirstColumn
+    Dim columnWidth2 As Double
+    Dim firstCellWidth As Double
+    
+    columnWidth2 = PointsToInches(Selection.Cells.Width) * 2
+    firstCellWidth = columnWidth2 - 0.5
+    
+    Selection.Cells(1).SetWidth columnWidth:=InchesToPoints(firstCellWidth), RulerStyle:=wdAdjustFirstColumn
     
     ' set the spacing after and in the table to have no white space to eliminate blank lines
     Selection.ParagraphFormat.SpaceAfter = 0
